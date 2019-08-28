@@ -9,6 +9,7 @@ import { BasicExampleDataComponent } from './components/basic-example/basic-exam
 import { BasicExampleComponent } from './components/basic-example/basic-example.component';
 
 import { HighlightCodeDirective } from './directives/highlight.directive';
+import { NbEvaIconsModule } from '@nebular/eva-icons';
 
 const SHARED_COMPONENTS = [
   HeaderComponent,
@@ -24,6 +25,7 @@ const SHARED_DIRECTIVES = [
   imports: [
     RouterModule,
     CommonModule,
+    NbEvaIconsModule,
     Ng2SmartTableModule,
   ],
   declarations: [

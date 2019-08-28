@@ -6,12 +6,13 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
 
 import { routes } from './pages.routes';
 import { SharedModule } from '../shared/shared.module';
-
+import { NbEvaIconsModule } from '@nebular/eva-icons';
 @NgModule({
   imports: [
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    NbEvaIconsModule,
     RouterModule.forChild(routes),
     Ng2SmartTableModule,
     SharedModule,

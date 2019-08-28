@@ -9,6 +9,12 @@ import { Component } from '@angular/core';
 export class BasicExampleDataComponent {
 
   settings = {
+    add: {
+      addButtonContent: '<nb-icon icon="star" status="warning"></nb-icon>',
+      createButtonContent: '<i class="nb-checkmark"></i>',
+      cancelButtonContent: '<i class="nb-close"></i>',
+      confirmCreate: true,
+    },
     columns: {
       id: {
         title: 'ID',
