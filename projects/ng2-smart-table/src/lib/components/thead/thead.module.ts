@@ -15,7 +15,9 @@ import { TitleComponent } from './cells/title/title.component';
 import { TheadFitlersRowComponent } from './rows/thead-filters-row.component';
 import { TheadFormRowComponent } from './rows/thead-form-row.component';
 import { TheadTitlesRowComponent } from './rows/thead-titles-row.component';
-
+import {NbButtonModule} from '@nebular/theme';
+import {NbIconModule} from '@nebular/theme';
+import { NbEvaIconsModule } from '@nebular/eva-icons';
 const THEAD_COMPONENTS = [
   ActionsComponent,
   ActionsTitleComponent,
@@ -35,6 +37,9 @@ const THEAD_COMPONENTS = [
     FormsModule,
     FilterModule,
     CellModule,
+    NbButtonModule,
+    NbIconModule,
+    NbEvaIconsModule,
   ],
   declarations: [
     ...THEAD_COMPONENTS,

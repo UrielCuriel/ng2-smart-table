@@ -7,8 +7,15 @@ import { DomSanitizer } from '@angular/platform-browser';
 @Component({
   selector: '[ng2-st-add-button]',
   template: `
-    <a *ngIf="isActionAdd " href="#" class="ng2-smart-action ng2-smart-action-add-add"
-        [innerHTML]="addNewButtonContent" (click)="onAdd($event)"></a>
+  <ng-container *ngIf="addNewButtonIcon; else ButtonContent">
+  <button nbButton ghost status="primary" *ngIf="isActionAdd"  (click)="onAdd($event)">
+      <nb-icon [icon]="addNewButtonIcon"></nb-icon>
+  </button>
+  </ng-container>
+  <ng-template #ButtonContent>
+    <button nbButton ghost status="primary" *ngIf="isActionAdd " 
+        [innerHTML]="addNewButtonContent" (click)="onAdd($event)"></button>
+  </ng-template>
   `,
 })
 export class AddButtonComponent implements AfterViewInit, OnChanges {
@@ -18,6 +25,7 @@ export class AddButtonComponent implements AfterViewInit, OnChanges {
   @Output() create = new EventEmitter<any>();
 
   isActionAdd: boolean;
+  addNewButtonIcon: string;
   addNewButtonContent: any;
 
   constructor(private ref: ElementRef,private domSanitizer:DomSanitizer) {
@@ -30,6 +38,7 @@ export class AddButtonComponent implements AfterViewInit, OnChanges {
   ngOnChanges() {
     this.isActionAdd = this.grid.getSetting('actions.add');
     this.addNewButtonContent = this.domSanitizer.bypassSecurityTrustHtml(this.grid.getSetting('add.addButtonContent'));
+    this.addNewButtonIcon = this.grid.getSetting('add.addButtonIcon');
   }
 
   onAdd(event: any) {

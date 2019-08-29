@@ -8,10 +8,22 @@ import { DataSource } from '../../../lib/data-source/data-source';
   selector: 'ng2-st-tbody-edit-delete',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <a href="#" *ngIf="isActionEdit" class="ng2-smart-action ng2-smart-action-edit-edit"
-        [innerHTML]="editRowButtonContent" (click)="onEdit($event)"></a>
-    <a href="#" *ngIf="isActionDelete" class="ng2-smart-action ng2-smart-action-delete-delete"
-        [innerHTML]="deleteRowButtonContent" (click)="onDelete($event)"></a>
+  <ng-container *ngIf="editRowButtonIcon; else editButtonContent">
+    <button nbButton ghost status="primary" *ngIf="isActionEdit"  (click)="onEdit($event)">
+    <nb-icon [icon]="editRowButtonIcon"></nb-icon></button>
+  </ng-container>
+  <ng-container *ngIf="deleteRowButtonIcon; else deleteButtonContent">
+  <button nbButton ghost status="danger" *ngIf="isActionDelete"  (click)="onDelete($event)">
+  <nb-icon [icon]="deleteRowButtonIcon"></nb-icon>
+  </button>
+</ng-container>
+  <ng-template #editButtonContent>
+    <button nbButton ghost status="primary" *ngIf="isActionEdit" [innerHTML]="editRowButtonContent" (click)="onEdit($event)"></button>
+    </ng-template>
+ 
+  <ng-template #deleteButtonContent>
+    <button nbButton ghost status="danger" *ngIf="isActionDelete" [innerHTML]="deleteRowButtonContent"(click)="onDelete($event)"></button>
+  </ng-template>
   `,
 })
 export class TbodyEditDeleteComponent implements OnChanges {
@@ -30,6 +42,8 @@ export class TbodyEditDeleteComponent implements OnChanges {
   isActionDelete: boolean;
   editRowButtonContent: string;
   deleteRowButtonContent: string;
+  editRowButtonIcon: string;
+  deleteRowButtonIcon: string;
 
   onEdit(event: any) {
     event.preventDefault();
@@ -66,5 +80,7 @@ export class TbodyEditDeleteComponent implements OnChanges {
     this.isActionDelete = this.grid.getSetting('actions.delete');
     this.editRowButtonContent = this.grid.getSetting('edit.editButtonContent');
     this.deleteRowButtonContent = this.grid.getSetting('delete.deleteButtonContent');
+    this.editRowButtonIcon = this.grid.getSetting('edit.editButtonIcon');
+    this.deleteRowButtonIcon = this.grid.getSetting('delete.deleteButtonIcon');
   }
 }

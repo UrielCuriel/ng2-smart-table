@@ -10,10 +10,16 @@ export class BasicExampleDataComponent {
 
   settings = {
     add: {
-      addButtonContent: '<nb-icon icon="star" status="warning"></nb-icon>',
-      createButtonContent: '<i class="nb-checkmark"></i>',
-      cancelButtonContent: '<i class="nb-close"></i>',
+      addButtonIcon: 'plus-outline',
+      createButtonIcon: 'checkmark-outline',
+      cancelButtonIcon: 'close-outline',
       confirmCreate: true,
+    },
+    edit: {
+      editButtonIcon:'edit-outline'
+    },
+    delete: {
+      deleteButtonIcon:'trash-2-outline'
     },
     columns: {
       id: {

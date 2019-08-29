@@ -38,6 +38,9 @@ const CELL_COMPONENTS = [
   declarations: [
     ...CELL_COMPONENTS,
   ],
+  entryComponents:[
+    ...CELL_COMPONENTS,
+  ],
   exports: [
     ...CELL_COMPONENTS,
   ],

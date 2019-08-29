@@ -8,6 +8,8 @@ import { Ng2SmartTableTbodyComponent } from './tbody.component';
 import { TbodyCreateCancelComponent } from './cells/create-cancel.component';
 import { TbodyEditDeleteComponent } from './cells/edit-delete.component';
 import { TbodyCustomComponent } from './cells/custom.component';
+import { NbButtonModule, NbIconModule } from '@nebular/theme';
+import { NbEvaIconsModule } from '@nebular/eva-icons';
 
 const TBODY_COMPONENTS = [
   TbodyCreateCancelComponent,
@@ -21,6 +23,9 @@ const TBODY_COMPONENTS = [
     CommonModule,
     FormsModule,
     CellModule,
+    NbButtonModule,
+    NbIconModule,
+    NbEvaIconsModule,
   ],
   declarations: [
     ...TBODY_COMPONENTS,
