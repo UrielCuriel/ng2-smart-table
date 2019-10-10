@@ -1,18 +1,18 @@
 export interface SourceSettings<T> {
     mode?: 'external' | 'inline';
-    hideHeader: boolean;
-    hideSubHeader: boolean;
-    noDataMessage: string;
+    hideHeader?: boolean;
+    hideSubHeader?: boolean;
+    noDataMessage?: string;
     attr?: {
         id?: string;
         class?: string;
     };
     actions?: {
-        columnTitle: string;
+        columnTitle?: string;
         add?: boolean;
         edit?: boolean;
         delete?: boolean;
-        position: 'left' | 'right';
+        position?: 'left' | 'right';
     };
     filter?: {
         inputClass: string;
@@ -78,8 +78,8 @@ interface Editor {
     config?: {
         true?: string;
         false?: string;
-        list: { value: any, title: string }[]
-        completer: Completer;
+        list?: { value: any, title: string }[]
+        completer?: Completer;
     };
 
 }
@@ -87,8 +87,8 @@ interface Editor {
 
 
 interface Completer {
-    data: any[];
-    searchFields: string;
-    titleField: string;
-    descriptionField: string;
+    data?: any[];
+    searchFields?: string;
+    titleField?: string;
+    descriptionField?: string;
 }
