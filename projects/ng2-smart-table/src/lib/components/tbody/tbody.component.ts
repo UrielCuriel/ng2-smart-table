@@ -1,22 +1,22 @@
-import {Component, Input, Output, EventEmitter, } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnChanges, } from '@angular/core';
 
 import { Grid } from '../../lib/grid';
 import { Row } from '../../lib/data-set/row';
 import { DataSource } from '../../lib/data-source/data-source';
-import {Column} from "../../lib/data-set/column";
 
 @Component({
+  // tslint:disable-next-line: component-selector
   selector: '[ng2-st-tbody]',
   styleUrls: ['./tbody.component.scss'],
   templateUrl: './tbody.component.html',
 })
-export class Ng2SmartTableTbodyComponent {
+export class Ng2SmartTableTbodyComponent implements OnChanges {
 
   @Input() grid: Grid;
   @Input() source: DataSource;
   @Input() deleteConfirm: EventEmitter<any>;
   @Input() editConfirm: EventEmitter<any>;
-  @Input() rowClassFunction: Function;
+  @Input() rowClassFunction: (row?) => {};
 
   @Output() save = new EventEmitter<any>();
   @Output() cancel = new EventEmitter<any>();
